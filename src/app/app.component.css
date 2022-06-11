@@ -1,0 +1,9 @@
+.sizePage{
+  min-height: calc(100vh);
+  max-height: calc(100vh);
+}
+
+p, h1,h2,h3,h4,h5,h6,span,b{
+  font-family: 'IBM Plex Sans', sans-serif !important;;
+}
+

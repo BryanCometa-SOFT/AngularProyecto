@@ -1,0 +1,219 @@
+<section class="bg-green-dark pb-3 py-lg-0 sizePage">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
+    <div class="col-lg-5 col-xl-4 d-none d-lg-block">
+      <img src="./../../../assets/img/img.png" class="sizePage" />
+    </div>
+    <div class="col-12 col-lg-7 col-xl-8 px-5 pt-5">
+      <div>
+        <h6 class="text-yellow">COTIZACIÓN ONLINE</h6>
+      </div>
+      <div>
+        <h2 class="text-dark">Ingresa tus datos personales</h2>
+      </div>
+      <!--Datos personales o Beneficiarios-->
+      <div class="row mt-4">
+        <div class="col-12 col-sm-6 d-flex">
+          <div
+            class="rounded-circle bg-purple size-circle d-flex justify-content-center align-items-center"
+          >
+            <i class="bi bi-person-fill text-white size-icon-circle"></i>
+          </div>
+          <div class="flex flex-column">
+            <p class="ml-2 text-purple mb-0 mt-2">01/02</p>
+            <h4 class="ml-2 text-purple">Datos personales</h4>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 mt-4 mt-sm-0 d-flex opacity-circle">
+          <div
+            class="rounded-circle bg-green-black size-circle d-flex justify-content-center align-items-center"
+          >
+            <i class="bi bi-people-fill text-purple size-icon-circle"></i>
+          </div>
+          <div class="flex flex-column">
+            <p class="ml-2 text-purple mb-0 mt-2">02/02</p>
+            <h4 class="ml-2 text-purple">Beneficiarios</h4>
+          </div>
+        </div>
+      </div>
+      <!--Formulario-->
+      <div class="card mt-5 py-5  px-4 px-md-5 border-radius-card border-0 shadow">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-between">
+            <h4 class="text-purple font-weight-bold bold">
+              Completa los siguientes datos
+            </h4>
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="name" class="text-purple font-weight-bold mb-0 bold"
+              >Nombre</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              formControlName="name"
+              class="form-control rounded-pill bg-green-dark"
+              [ngClass]="form.value.name != '' ? '' : 'input-validate'"
+            />
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="city" class="text-purple font-weight-bold mb-0"
+              >Ciudad del servicio</label
+            >
+            <select
+              id="city"
+              name="city"
+              formControlName="city"
+              class="form-control rounded-pill bg-green-dark"
+              [ngClass]="form.value.city != '' ? '' : 'input-validate'"
+            >
+              <option *ngFor="let item of municipies">{{ item }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="" class="text-purple font-weight-bold mb-0"
+              >Apellido</label
+            >
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              formControlName="lastname"
+              class="form-control rounded-pill bg-green-dark"
+              [ngClass]="form.value.lastname != '' ? '' : 'input-validate'"
+            />
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="" class="text-purple font-weight-bold mb-0"
+              >Fecha de nacimiento</label
+            >
+            <input
+              id="date"
+              name="date"
+              formControlName="date"
+              type="date"
+              class="form-control rounded-pill bg-green-dark"
+              [ngClass]="form.value.date != '' ? '' : 'input-validate'"
+            />
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="" class="text-purple font-weight-bold mb-0"
+              >Tipo de documento</label
+            >
+            <select
+              class="form-control rounded-pill bg-green-dark"
+              id="typeDocument"
+              name="typeDocument"
+              formControlName="typeDocument"
+              [ngClass]="form.value.typeDocument != '' ? '' : 'input-validate'"
+            >
+              <option *ngFor="let item of typeDocument">{{ item }}</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="row">
+              <div class="col-4 col-md-4 d-flex flex-column">
+                <label for="" class="text-purple font-weight-bold mb-0"
+                  >Teléfono</label
+                >
+                <input
+                  type="text"
+                  class="form-control rounded-pill bg-green-dark"
+                  value="+57"
+                  disabled
+                  [ngClass]="form.value.phone != '' ? '' : 'input-validate'"
+                />
+              </div>
+              <div class="col-8 col-md-8 d-flex align-items-end">
+                <input
+                  id="phone"
+                  name="phone"
+                  value=""
+                  formControlName="phone"
+                  type="text"
+                  class="form-control rounded-pill bg-green-dark"
+                  [ngClass]="form.value.phone != '' ? '' : 'input-validate'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="" class="text-purple font-weight-bold mb-0"
+              >Número de documento</label
+            >
+            <input
+              type="text"
+              id="document"
+              value=""
+              name="document"
+              formControlName="document"
+              class="form-control rounded-pill bg-green-dark"
+              [ngClass]="form.value.document != '' ? '' : 'input-validate'"
+            />
+          </div>
+          <div class="col-12 col-md-6 d-flex flex-column">
+            <label for="" class="text-purple font-weight-bold mb-0"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value=""
+              formControlName="email"
+              required
+              class="form-control rounded-pill"
+              [ngClass]="form.value.email != '' ? '' : 'input-validate'"
+            />
+          </div>
+        </div>
+        <div class="row py-2">
+          <div class="col-12 d-flex justify-content-end" *ngIf="form.invalid">
+            <p class="text-yellow">Todos los campos son obligatorios</p>
+          </div>
+          <div class="col-12 d-flex justify-content-end">
+            <input
+              type="checkbox"
+              id="check"
+              name="check"
+              formControlName="check"
+              value="1"
+              required
+              class="mt-2 bg-green-dark"
+              [ngClass]="form.value.check != '' ? '' : 'input-validate'"
+            />
+            <p class="ml-2">Incluirme como beneficiario/a</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 d-flex justify-content-between">
+        <button
+          class="d-flex justify-content-center align-items-center rounded size-circle-next-previus border-purple rounded-circle"
+        >
+          <i
+            class="bi bi-arrow-left-short text-purple size-icon-next-previus"
+          ></i>
+        </button>
+        <button
+          class="rounded-pill btn-next border-0"
+          type="submit"
+          [disabled]="form.invalid"
+          [ngClass]="
+            form.invalid ? 'bg-purple-black text-white font-weight-bold' : 'bg-purple text-white'
+          "
+        >
+          Continuar
+        </button>
+      </div>
+    </div>
+  </form>
+</section>

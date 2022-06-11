@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow py-3 px-3">
+        <div class="text-center">
+          <h3 class="text-purple">Datos</h3>
+        </div>
+        <table class="table table-striped border-purple">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Ciudad</th>
+              <th>Email</th>
+              <th>Celular</th>
+              <th>Tipo Documento</th>
+              <th>Documento</th>
+              <th>Fecha</th>
+              <th>Check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of dataTable">
+              <td>{{ item.name }}</td>
+              <td>{{ item.lastname }}</td>
+              <td>{{ item.city }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.phone }}</td>
+              <td>{{ item.typeDocument}}</td>
+              <td>{{ item.document }}</td>
+              <td>{{ item.date }}</td>
+              <td>{{ item.check }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -13,6 +13,7 @@ import { PersonalRegistrationService } from './services/personal-registration.se
 //COMPONENTS
 import { AppComponent } from './app.component';
 import { PersonalRegistrationComponent } from './view/personal-registration/personal-registration.component';
+import { TablePersonalRegistrationComponent } from './view/table-personal-registration/table-personal-registration.component';
 
 
 
@@ -20,6 +21,7 @@ import { PersonalRegistrationComponent } from './view/personal-registration/pers
   declarations: [
     AppComponent,
     PersonalRegistrationComponent,
+    TablePersonalRegistrationComponent,
   ],
   imports: [
     BrowserModule,

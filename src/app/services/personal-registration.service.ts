@@ -12,7 +12,7 @@ export class PersonalRegistrationService {
   constructor(private httpClient: HttpClient) { }
 
   savePersonalRegistration(data:any) {
-    return this.httpClient.post<any>(`${this.baseUrl}/datos.json`,data).pipe(
+    return this.httpClient.put(`${this.baseUrl}/datos.json`,data).pipe(
       map(result => {
         return result;
       })
@@ -27,6 +27,13 @@ export class PersonalRegistrationService {
   }
   getTypeDocument() {
     return this.httpClient.get<any>(`${this.baseUrl}/tipoDocumento.json`).pipe(
+      map(result => {
+        return result;
+      })
+    );
+  }
+  getDataRegistration() {
+    return this.httpClient.get<any>(`${this.baseUrl}/datos.json`).pipe(
       map(result => {
         return result;
       })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { PersonalRegistrationService } from "./../../services/personal-registration.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-registration',
@@ -11,6 +12,7 @@ import { PersonalRegistrationService } from "./../../services/personal-registrat
 export class PersonalRegistrationComponent implements OnInit {
   municipies: any = null;
   typeDocument: any = null;
+  dataTable: any = [];
   form: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required]),
     city: new FormControl("", [Validators.required]),
@@ -20,14 +22,15 @@ export class PersonalRegistrationComponent implements OnInit {
     phone: new FormControl("", [Validators.required]),
     document: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required]),
-    check: new FormControl(""),
+    check: new FormControl("", [Validators.required]),
   });
 
-  constructor(private personalRegistrationService: PersonalRegistrationService) { }
+  constructor(private personalRegistrationService: PersonalRegistrationService, private router: Router) { }
 
   ngOnInit(): void {
     this.getMunicipies();
     this.getTypeDocument();
+    this.getData();
   }
   async onSubmit() {
     console.log(this.form);
@@ -47,7 +50,9 @@ export class PersonalRegistrationComponent implements OnInit {
       });
       return;
     }
-    await this.personalRegistrationService.savePersonalRegistration(this.form.value).subscribe({
+    this.dataTable.push(this.form.value);
+    console.log(this.dataTable);
+    await this.personalRegistrationService.savePersonalRegistration(this.dataTable).subscribe({
       next: () => {
         Swal.close();
         Swal.fire({
@@ -58,6 +63,7 @@ export class PersonalRegistrationComponent implements OnInit {
           timer: 2000,
           confirmButtonText: 'Yes, delete it!'
         });
+        this.router.navigate(['table']);
       },
       error: () => {
         Swal.close();
@@ -65,7 +71,7 @@ export class PersonalRegistrationComponent implements OnInit {
           icon: "error",
           text: "No fue guardado el registro",
           timer: 5000,
-          confirmButtonText:"Ok"
+          confirmButtonText: "Ok"
         });
         this.form.reset();
       },
@@ -87,6 +93,17 @@ export class PersonalRegistrationComponent implements OnInit {
       next: (response) => {
         console.log(response);
         this.typeDocument = response;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+  async getData() {
+    await this.personalRegistrationService.getDataRegistration().subscribe({
+      next: (response) => {
+        console.log(response);
+        this.dataTable = response;
       },
       error: (error) => {
         console.log(error);

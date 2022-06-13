@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonalRegistrationService } from "./../../services/personal-registration.service";
+import { PersonalRegistrationService } from "./../../../services/personal-registration.service";
 
 @Component({
   selector: 'app-table-personal-registration',

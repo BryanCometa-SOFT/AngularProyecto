@@ -1,0 +1,75 @@
+.text-yellow{
+  color: #d99f6c;
+}
+.text-black{
+color: #474747;
+}
+.text-purple{
+color: #492e65;
+}
+.bg-purple{
+background-color: #492e65;
+}
+.bg-green{
+background-color: #fafafa;
+}
+.bg-green-dark{
+background-color: #fafafa;
+}
+.bg-green-black{
+background-color: #e0dddd96;
+}
+.bg-purple-black{
+background-color: #978ba5b4;
+}
+.bold {
+font-weight: bold;
+}
+
+.border-purple{
+border: 2px solid #492e65;
+}
+
+.size-circle-next-previus{
+height: 50px;
+width: 50px;
+}
+
+.size-icon-next-previus{
+font-size: 35px;
+}
+
+.size-circle{
+height: 70px;
+width: 70px;
+}
+
+.size-icon-circle{
+font-size: 20px;
+}
+
+.opacity-circle{
+opacity: 0.5;
+}
+
+.border-radius-card{
+border-radius: 25px;
+}
+
+.btn-next{
+height: 50px;
+width: 150px;
+}
+
+.input-validate  {
+border: 1px solid #d99f6c;
+}
+
+.input-ok  {
+border: 2px solid #9c9c9c;
+}
+
+.form-control:focus {
+border-color: #9c9c9c;
+box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.363);
+}

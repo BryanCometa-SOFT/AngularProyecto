@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { PersonalRegistrationService } from "./../../services/personal-registration.service";
+import { PersonalRegistrationService } from "../../../services/personal-registration.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-registration.component.css']
 })
 export class PersonalRegistrationComponent implements OnInit {
+
   municipies: any = null;
   typeDocument: any = null;
   dataTable: any = [];
@@ -26,6 +27,7 @@ export class PersonalRegistrationComponent implements OnInit {
   });
 
   constructor(private personalRegistrationService: PersonalRegistrationService, private router: Router) { }
+
 
   ngOnInit(): void {
     this.getMunicipies();
@@ -63,7 +65,7 @@ export class PersonalRegistrationComponent implements OnInit {
           timer: 2000,
           confirmButtonText: 'Yes, delete it!'
         });
-        this.router.navigate(['table']);
+        this.router.navigate(['online-quote/table']);
       },
       error: () => {
         Swal.close();
@@ -110,12 +112,8 @@ export class PersonalRegistrationComponent implements OnInit {
       },
     });
   }
-  /*
-  swalAlert(text: String, icon: String, title: String) {
-    Swal.fire({
-      title: title,
-      icon: icon,
-      text: text,
-    });
-  }*/
 }
+
+
+
+
